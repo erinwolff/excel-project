@@ -1,3 +1,5 @@
 BM055unprotected.xlsx
 .venv/
 extracted_formulas.json
+unique_formulas.json
+tasks.txt

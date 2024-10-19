@@ -1,4 +1,5 @@
 import openpyxl
+import json
 
 
 def extract_formulas(file_path):
@@ -26,12 +27,12 @@ def extract_formulas(file_path):
     return formulas
 
 
-# Usage
-file_path = "your_excel_file.xlsx"
-formulas = extract_formulas(file_path)
+def save_formulas_to_json_file(formulas, output_file):
+    with open(output_file, "w") as f:
+        json.dump(formulas, f, indent=4)
 
-# Print the extracted formulas
-for sheet, sheet_formulas in formulas.items():
-    print(f"Formulas in sheet '{sheet}':")
-    for cell, formula in sheet_formulas.items():
-        print(f"Cell {cell}: {formula}")
+
+# Usage
+file_path = "BM055unprotected.xlsx"
+formulas = extract_formulas(file_path)
+save_formulas_to_json_file(formulas, "extracted_formulas.json")
